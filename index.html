@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <!-- Link to external CSS stylesheet -->
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <!-- Ensures proper rendering on mobile devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Link to external icon library (Boxicons) -->
+    <link
+      href="https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <title>Weather Application</title>
+  </head>
+  <body>
+    <!-- Main container for the web app -->
+    <div class="home" id="home">
+      <!-- Dark mode toggle button -->
+      <div class="dark-mode">
+        <span class="dark-mode-btn">
+          <i class="bx bx-moon"></i>
+        </span>
+      </div>
+
+      <!-- Main content section -->
+      <center>
+        <div class="wrapper">
+          <!-- Marquee displaying the creator's name -->
+          <marquee
+            style="color: #9c9388a1; margin-top: 6px"
+            direction="left"
+            scrollamount="3"
+          >
+            Created By
+            <b>
+              <a style="text-decoration: none; color: aqua">Nikhil Shukla</a>
+            </b>
+            <span id="contactspan"></span>
+          </marquee>
+
+          <!-- Header section -->
+          <header>
+            <i class="bx bx-left-arrow-alt" id="refresh-icon"></i>
+            Weather Application
+          </header>
+
+          <!-- Section for input fields -->
+          <section class="input-part">
+            <!-- Error or info message placeholder -->
+            <p class="info-txt"></p>
+            <div class="content">
+              <!-- Input field for city name -->
+              <input
+                type="text"
+                spellcheck="false"
+                placeholder="Enter City Name"
+                required
+              />
+              <!-- Separator between input and button -->
+              <div class="separator"></div>
+              <!-- Button for location auto-detection -->
+              <button>Location auto-detect</button>
+            </div>
+          </section>
+
+          <!-- Section for displaying weather information -->
+          <section class="weather-part">
+            <!-- Placeholder for weather icon -->
+            <img src="" alt="Weather Icon" />
+            <!-- Temperature display -->
+            <div class="temp">
+              <span class="numb">_</span>
+              <span class="deg">°</span>C
+            </div>
+            <!-- Weather description -->
+            <div class="weather">_ _</div>
+            <!-- Location display -->
+            <div class="location">
+              <i class="bx bx-map"></i>
+              <span>_, _</span>
+            </div>
+            <!-- Additional weather details (feels like, humidity) -->
+            <div class="bottom-details">
+              <!-- Feels like temperature -->
+              <div class="column feels">
+                <i class="bx bxs-thermometer"></i>
+                <div class="details">
+                  <div class="temp">
+                    <span class="numb-2">_</span>
+                    <span class="deg">°</span>C
+                  </div>
+                  <p>Feels like</p>
+                </div>
+              </div>
+              <!-- Humidity level -->
+              <div class="column humidity">
+                <i class="bx bxs-droplet-half"></i>
+                <div class="details">
+                  <span>_</span>
+                  <p>Humidity</p>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </center>
+
+      <!-- Link to external JavaScript file -->
+      <script src="assets/js/script.js"></script>
+    </div>
+  </body>
+</html>
