@@ -1,0 +1,361 @@
+/* Import Google Font - Poppins */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+/* Universal selector for resetting margin and padding, and setting the default font */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Define CSS variables for theme colors */
+:root {
+  --primary-color: hsl(227.8, 40.3%, 26.3%);
+  --secondary-color: #fff;
+  --text-color: #fff;
+  --input-color: #000;
+  --light-gery: #f5f5f5;
+  --pending-color: #b7e4ec;
+  --pending-text-color: #0c6047;
+  --error-color: #ffc1c5;
+  --error-text-color: #631920;
+}
+
+/* Body styles for centering content and setting the background */
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: var(--primary-color);
+  color: var(--text-color);
+}
+
+#refresh-icon {
+  cursor: pointer; /* Change cursor to pointer on hover */
+  font-size: 24px; /* Adjust size as needed */
+  transition: transform 0.3s;
+}
+
+#refresh-icon:hover {
+  transform: rotate(360deg); /* Add a spin effect on hover */
+}
+
+/* Highlight styles when text is selected */
+::selection {
+  color: #fff;
+  background: var(--primary-color);
+}
+
+/* Wrapper styles for the main content container */
+.wrapper {
+  width: 400px;
+  background: #fff;
+  border-radius: 7px;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+/* Header styles for the main section title */
+.wrapper header {
+  display: flex;
+  font-size: 21px;
+  font-weight: 500;
+  color: var(--text-color);
+  padding: 16px 15px;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+}
+
+/* Icon styles inside the header */
+header i {
+  font-size: 0em;
+  cursor: pointer;
+  margin-right: 8px;
+}
+
+/* Active state styles for header icon */
+.wrapper.active header i {
+  margin-left: 5px;
+  font-size: 30px;
+}
+
+/* Input section styling */
+.wrapper .input-part {
+  margin: 20px 25px 30px;
+}
+
+/* Hide input section in active state */
+.wrapper.active .input-part {
+  display: none;
+}
+
+/* Info text styling */
+.input-part .info-txt {
+  display: none;
+  font-size: 17px;
+  text-align: center;
+  padding: 12px 10px;
+  border-radius: 7px;
+  margin-bottom: 15px;
+}
+
+/* Error message styling */
+.input-part .info-txt.error {
+  color: var(--error-text-color);
+  display: block;
+  background: var(--error-color);
+  border: 1px solid #f5c6cb;
+}
+
+/* Pending message styling */
+.input-part .info-txt.pending {
+  color: var(--pending-text-color);
+  display: block;
+  background: var(--pending-color);
+  border: 1px solid #bee5eb;
+}
+
+/* Styling for input and button elements */
+.input-part :where(input, button) {
+  width: 100%;
+  height: 55px;
+  border: none;
+  outline: none;
+  font-size: 18px;
+  border-radius: 7px;
+}
+
+/* Input field styles */
+.input-part input {
+  text-align: center;
+  padding: 0 15px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+}
+
+/* Input focus and valid states */
+.input-part input:is(:focus, :valid) {
+  border: 2px solid var(--primary-color);
+}
+
+/* Placeholder text color */
+.input-part input::placeholder {
+  color: rgb(24, 24, 24) !important;
+}
+
+/* Separator styles between input and button */
+.input-part .separator {
+  height: 1px;
+  width: 100%;
+  margin: 25px 0;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.separator::before {
+  content: "or";
+  color: var(--light-gery);
+  font-size: 19px;
+  padding: 0 15px;
+  border-radius: 20px;
+}
+
+/* Button styles */
+.input-part button {
+  color: var(--text-color);
+  cursor: pointer;
+  background: var(--primary-color);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  transition: 0.3s ease;
+}
+
+/* Button hover effect */
+.input-part button:hover {
+  transform: scale(1.03);
+}
+
+/* Weather details section */
+.wrapper .weather-part {
+  display: none;
+  margin: 30px 0 0;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+/* Display weather details in active state */
+.wrapper.active .weather-part {
+  display: flex;
+}
+
+/* Weather image styling */
+.weather-part img {
+  max-width: 200px;
+}
+
+/* Temperature display */
+.weather-part .temp {
+  display: flex;
+  font-weight: 500;
+  font-size: 72px;
+}
+.weather-part .temp .numb {
+  font-weight: 600;
+}
+.weather-part .temp .deg {
+  font-size: 40px;
+  display: block;
+  margin: 10px 5px 0 0;
+}
+
+/* Weather text description */
+.weather-part .weather {
+  font-size: 21px;
+  text-align: center;
+  margin: -5px 20px 15px;
+}
+
+/* Location display styles */
+.weather-part .location {
+  display: flex;
+  font-size: 19px;
+  padding: 0 20px;
+  text-align: center;
+  margin-bottom: 30px;
+  align-items: flex-start;
+}
+.location i {
+  font-size: 22px;
+  margin: 4px 5px 0 0;
+}
+
+/* Bottom details section */
+.weather-part .bottom-details {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  border-top: 1px solid #ccc;
+}
+
+/* Bottom column details */
+.bottom-details .column {
+  display: flex;
+  width: 100%;
+  padding: 15px 0;
+  align-items: center;
+  justify-content: center;
+}
+.column i {
+  color: var(--secondary-color);
+  font-size: 40px;
+}
+
+/* Column for humidity */
+.column.humidity {
+  border-left: 1px solid #ccc;
+}
+.column .details {
+  margin-left: 3px;
+}
+
+/* Temperature and humidity details */
+.details .temp,
+.humidity span {
+  font-size: 18px;
+  font-weight: 500;
+  margin-top: -3px;
+}
+.details .temp .deg {
+  margin: 0;
+  font-size: 17px;
+  padding: 0 2px 0 1px;
+}
+.column .details p {
+  font-size: 14px;
+  margin-top: -6px;
+}
+
+/* Humidity icon size */
+.humidity i {
+  font-size: 37px;
+}
+
+/* Dark mode button styles */
+.dark-mode {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 50%;
+  padding: 8px 13px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  transition: transform 0.3s;
+}
+
+.dark-mode:hover {
+  transform: rotate(360deg); /* Add a spin effect on hover */
+}
+.dark-mode span {
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* Media query for smaller screens */
+@media only screen and (max-width: 436px) {
+  .wrapper {
+    width: 96vw;
+  }
+}
+
+/* Custom query for the home page grid */
+.home {
+  display: grid;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  min-height: 99vh;
+  align-items: center;
+  justify-content: center;
+}
+.home {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
+/* Overlay styling */
+.home::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* Content container inside the home page */
+.home .content {
+  flex: 1 1 40rem;
+  padding-top: 1rem;
+  z-index: 1;
+}
+
+/* Dark mode styles for the entire page */
+.dark-mode-active {
+  background-color: rgba(13, 11, 11, 0.973);
+  color: #ffffff;
+}
+
+.dark-mode-active .info-txt,
+.dark-mode-active a {
+  color: #ffffff;
+}
